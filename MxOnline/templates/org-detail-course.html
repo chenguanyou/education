@@ -1,0 +1,58 @@
+{% extends 'org_base.html' %}
+{% block custom_title %}机构课程列表 {% endblock %}
+{% block page_path %}机构课程{% endblock %}
+{% block right_form %}
+<div class="right companycenter layout" >
+		<div class="head">
+			<h1>机构课程</h1>
+		</div>
+		<div class="brief group_list">
+                {% for all_course in orgs.object_list %}
+                <div class="module1_5 box">
+                    <a class="comp-img-box" href="{% url 'course_detail' all_course.id %}">
+
+                        <img width="214" height="195" src="../../Banner/{{ all_course.image }}"/>
+                    </a>
+                    <div class="des">
+                        <a href="{% url 'course_detail' all_course.id %}"><h2>{{ all_course.name }}</h2></a>
+                        <span class="fl">课时：<i class="key">{{ all_course.learn_times }}小时</i></span>
+                        <span class="fr">学习人数：{{ all_course.students }}</span>
+                    </div>
+                    <div class="bottom">
+                        <span class="fl">{{ all_course.course_org.name }}</span>
+                         <span class="star fr  notlogin
+                            " data-favid="13" data-fav-type="4">
+                           {{ all_course.fav_nums }}
+                        </span>
+
+                    </div>
+                </div>
+            {% endfor %}
+
+
+		</div>
+			<div class="pageturn">
+                <ul class="pagelist">
+                     {% if orgs.has_previous %}
+                     <li class="long"><a href="?{{ orgs.previous_page_number.querystring }}">上一页</a></li>
+                {% endif %}
+                {% for page in orgs.pages %}
+                    {% if page %}
+                        {% ifequal page orgs.number %}
+                            <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                        {% else %}
+                             <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                        {% endifequal %}
+                        {% else %}
+                            <li class="none"><a href="">...</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if orgs.has_next %}
+                    <li class="long"><a href="?{{ orgs.next_page_number.querystring }}">下一页</a></li>
+                {% endif %}
+                </ul>
+            </div>
+	</div>
+{% endblock %}
+
+
