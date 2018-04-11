@@ -19,10 +19,11 @@
 >
 >2.如果阁下没有安装上面我所说到的环境，请阁下自行安装。<br/>
 >
->3.安装环境后请修改```Online-education/MxOnline/MxOnline/```目录下的```settings.py```文件里面的```DATABASES ```数据库连接信息和邮箱配置信息
+>3.安装环境后请修改```Online-education/MxOnline/MxOnline/```目录下的```settings.py```文件里面的```DATABASES ```数据库连接信息和邮箱配置信息<br/>
 >
-<br/>
->4.然后进入项目```Online-education/MxOnline/```目录执行:```python manage.py makemigrations```<br/>
+>4.然后进入项目```Online-education/MxOnline/```<br/>
+>
+>目录执行:```python manage.py makemigrations```<br/>
 >
 >5.在执行：```python manage.py migrate```<br />
 >
@@ -43,6 +44,5 @@
 ![Alt text](./images/3.png)<br/>
 ![Alt text](./images/4.png)<br/>
 ![Alt text](./images/5.png)<br/>
-![Alt text](./images/6.png)<br/>
 <br/>
 ###项目不提供后期更新，有兴趣的小伙伴可以拿去玩玩
